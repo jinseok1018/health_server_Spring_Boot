@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User_Health {
+public class UserHealth {
 
     @ManyToOne
     @JoinColumn(name ="userid")

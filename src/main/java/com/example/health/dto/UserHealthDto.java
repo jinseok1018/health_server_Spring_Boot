@@ -1,17 +1,12 @@
 package com.example.health.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.example.health.entity.User;
 import lombok.*;
-import com.example.health.entity.User_Health;
-import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.data.annotation.Id;
+import com.example.health.entity.UserHealth;
 
-import javax.persistence.Column;
-import javax.persistence.IdClass;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,10 +14,9 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserHealthDto {
-
-    @NotNull
-    private int num;
-
+//
+//    @NotNull
+//    private int num;
     @NotNull
     private String userid;
 
@@ -41,15 +35,35 @@ public class UserHealthDto {
     private String exercise_method;
 
 
-    public static UserHealthDto from(User_Health user_health) {
+    public static UserHealthDto from(UserHealth userHealth) {
         return UserHealthDto.builder()
-                .num(user_health.getNum())
-                .date(user_health.getDate())
-                .weight(user_health.getWeight())
-                .body_fat(user_health.getBody_fat())
-                .body_muscle(user_health.getBody_muscle())
-                .menu_planner(user_health.getMenu_planner())
-                .exercise_method(user_health.getExercise_method())
+//                .num(user_health.getNum())
+                .userid(userHealth.getUser().getUserid())
+                .date(userHealth.getDate())
+                .weight(userHealth.getWeight())
+                .body_fat(userHealth.getBody_fat())
+                .body_muscle(userHealth.getBody_muscle())
+                .menu_planner(userHealth.getMenu_planner())
+                .exercise_method(userHealth.getExercise_method())
                 .build();
+    }
+
+    public static ArrayList<UserHealthDto> fromList(List<UserHealth> listUserHealth) {
+        ArrayList<UserHealthDto> listUserHealthDto= new ArrayList<>();
+        int i = 0;
+        while(i < listUserHealth.size()){
+            UserHealthDto userHealthDto = UserHealthDto.builder()
+                    .userid(listUserHealth.get(i).getUser().getUserid())
+                    .date(listUserHealth.get(i).getDate())
+                    .weight(listUserHealth.get(i).getWeight())
+                    .body_fat(listUserHealth.get(i).getBody_fat())
+                    .body_muscle(listUserHealth.get(i).getBody_muscle())
+                    .menu_planner(listUserHealth.get(i).getMenu_planner())
+                    .exercise_method(listUserHealth.get(i).getExercise_method())
+                    .build();
+            listUserHealthDto.add(userHealthDto);
+            i++;
+        }
+        return listUserHealthDto;
     }
 }

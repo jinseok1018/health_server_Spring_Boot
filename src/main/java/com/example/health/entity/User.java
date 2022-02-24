@@ -1,10 +1,13 @@
 package com.example.health.entity;
 
+import com.example.health.dto.AuthorityDto;
+import com.example.health.dto.UserDto;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "user")
@@ -36,4 +39,6 @@ public class User {
             joinColumns = {@JoinColumn(name = "userid", referencedColumnName = "userid")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
     private Set<Authority> authorities;
+
+
 }
