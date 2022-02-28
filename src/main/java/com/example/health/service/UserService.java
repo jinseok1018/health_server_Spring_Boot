@@ -82,7 +82,17 @@ public class UserService {
     }
 
     @Transactional
-    public ArrayList<UserHealthDto> getMyUserHealth(String userid) {
+    public ArrayList<UserHealthDto> getMyUserHealth() {
         return UserHealthDto.fromList(userHealthRepository.findByUser(SecurityUtil.getCurrentUserid().flatMap(userRepository::findOneWithAuthoritiesByUserid).orElse(null)));
+    }
+
+    @Transactional
+    public ArrayList<UserHealthDto> getOtherUserHealth(String userid) {
+        return UserHealthDto.fromList(userHealthRepository.findByUser(userRepository.getById(userid)));
+    }
+
+    @Transactional
+    public ArrayList<UserDto> getUserAll() {
+        return UserDto.fromList(userRepository.findAll());
     }
 }

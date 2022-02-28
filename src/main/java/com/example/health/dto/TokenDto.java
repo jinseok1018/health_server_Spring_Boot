@@ -7,6 +7,6 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TokenDto { // 토큰정보를 response할 때 사용
+public class TokenDto {
     private String token;
 }

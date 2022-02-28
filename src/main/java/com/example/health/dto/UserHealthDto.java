@@ -14,30 +14,19 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserHealthDto {
-//
-//    @NotNull
-//    private int num;
     @NotNull
     private String userid;
-
     @NotNull
     private String date;
-
     @NotNull
     private float weight;
-
     private float body_fat;
-
     private float body_muscle;
-
     private String menu_planner;
-
     private String exercise_method;
-
 
     public static UserHealthDto from(UserHealth userHealth) {
         return UserHealthDto.builder()
-//                .num(user_health.getNum())
                 .userid(userHealth.getUser().getUserid())
                 .date(userHealth.getDate())
                 .weight(userHealth.getWeight())

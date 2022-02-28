@@ -25,16 +25,11 @@ import java.util.stream.Collectors;
 // Token의 생성과 유효성 검증 등을 담당
 @Component
 public class TokenProvider implements InitializingBean {
-
     private final Logger logger = LoggerFactory.getLogger(TokenProvider.class);
-
     private static final String AUTHORITIES_KEY = "auth";
-
     private final String secret;
     private final long tokenValidityInMilliseconds;
-
     private Key key;
-
 
     public TokenProvider(
             @Value("${jwt.secret}") String secret,
@@ -42,7 +37,6 @@ public class TokenProvider implements InitializingBean {
         this.secret = secret;
         this.tokenValidityInMilliseconds = tokenValidityInSeconds * 1000; // Token 만료시간
     }
-
     // InitializingBean implements해서 afterPropertiesSet() overide한 이유는
     // 빈이 생성이되고 의존성 주입을 받은 후에 TokenProvider에서 주입받은 secret값을 Base64 Decode해서 key변수에 할당
     @Override
@@ -50,7 +44,6 @@ public class TokenProvider implements InitializingBean {
         byte[] keyBytes = Decoders.BASE64.decode(secret);
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
-
     // Authentication 객체의 권한 정보를 이용해, Token을 생성
     public String createToken(Authentication authentication) {
         String authorities = authentication.getAuthorities().stream()
@@ -67,7 +60,6 @@ public class TokenProvider implements InitializingBean {
                 .setExpiration(validity)
                 .compact();
     }
-
     // 역으로 Token을 parameter로 받아서 Token에 담겨있는 정보를 이용해 Authentication 객체를 return
     public Authentication getAuthentication(String token) {
         // Token으로 Claims을 만들고
@@ -77,7 +69,6 @@ public class TokenProvider implements InitializingBean {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-
         // Claims에서 권한 정보를 빼냄
         Collection<? extends GrantedAuthority> authorities =
                 Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
@@ -85,7 +76,6 @@ public class TokenProvider implements InitializingBean {
                         .collect(Collectors.toList());
         // 빼낸 권한정보로 User객체를 만듦
         User principal = new User(claims.getSubject(), "", authorities);
-
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }
 
