@@ -8,7 +8,7 @@
 
 </aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13f16f56-fae7-404b-8b8e-a878ac40e70f/Untitled.png)
+![image](https://user-images.githubusercontent.com/50285234/158755959-3da6a8e3-aff1-45ee-ba13-8e1d55820afe.png)
 
 <aside>
 💡 MY 버튼을 클릭하여 자신의 운동을 기록할 수 있습니다.
@@ -36,8 +36,10 @@
     - 로그인시, 사용자에게 JWT가 발급되며, 이후 Client의 모든 Request는 Header에 Token을 담아 사용자 인증과정을 거친 후 응답을 받습니다.
     - 예시) 로그인시, JWT 발급
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2214ec25-21bb-4dd7-b5ce-511991fc39de/Untitled.png)
+![image](https://user-images.githubusercontent.com/50285234/158755987-256c615d-c49a-4f9a-b97e-5a85c28f0690.png)
     
 - JPA를 이용한 DB접근
 
 ## API 명세
+![image](https://user-images.githubusercontent.com/50285234/158756019-e96a5d54-b368-465b-9f64-a3b3e4b481b1.png)
+
