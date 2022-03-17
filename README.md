@@ -1,9 +1,7 @@
 # health_server_Spring_Boot
 ## 앱 소개
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9d975798-9e1f-4283-90f4-0d0d60347d8c/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1757281b-9064-42f5-bb7a-c13dad1bfba3/Untitled.png)
+![image](https://user-images.githubusercontent.com/50285234/158755919-add373aa-5b12-4be1-bb3a-b5f3ce40843a.png)
 
 <aside>
 💡 로그인 시, 다른 유저 정보가 키와 성별을 표시하고 사용자는 비슷한키와 같은 성별을 클릭하여 다른 유저의 운동 기록과 변화를 파악할 수 있습니다.
