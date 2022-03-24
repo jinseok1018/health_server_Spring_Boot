@@ -54,4 +54,9 @@ public class UserController {
     public ResponseEntity<ArrayList<UserHealthDto>> getOtherUserHealth(@PathVariable String userid) {
         return ResponseEntity.ok(userService.getOtherUserHealth(userid));
     }
+    //test
+    @GetMapping("/user/health/test")
+    public ResponseEntity<ArrayList<UserHealthDto>> test(@PathVariable String userid) {
+        return ResponseEntity.ok(userService.getOtherUserHealth(userid));
+    }
 }
