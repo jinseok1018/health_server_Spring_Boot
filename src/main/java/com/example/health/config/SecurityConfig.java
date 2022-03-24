@@ -48,8 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/h2-console/**"
                         ,"/favicon.ico"
                         ,"/error"
-                        ,"/swagger-resources/**"
-                        ,"/swagger*/**"
                         ,"/configuration/**"
                 );
     }
@@ -82,6 +80,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/authenticate").permitAll()
                 .antMatchers("/api/signup").permitAll()
                 .antMatchers("/api/user-all").permitAll()
+
+
                 .anyRequest().authenticated()
 
                 .and()

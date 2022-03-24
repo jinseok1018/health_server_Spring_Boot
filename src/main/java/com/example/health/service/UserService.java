@@ -25,6 +25,7 @@ public class UserService {
     private final UserHealthRepository userHealthRepository;
     private final PasswordEncoder passwordEncoder;
     private final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
+
     public UserService(UserRepository userRepository, UserHealthRepository userHealthRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
