@@ -49,14 +49,9 @@ public class UserController {
     public ResponseEntity<ArrayList<UserHealthDto>> getMyUserHealth() {
         return ResponseEntity.ok(userService.getMyUserHealth());
     }
-    // 다른 유저의 헬스 정보 가져오기.
+    // 다른 유저의 헬스 정보 가져오기
     @GetMapping("/user/health/{userid}")
     public ResponseEntity<ArrayList<UserHealthDto>> getOtherUserHealth(@PathVariable String userid) {
-        return ResponseEntity.ok(userService.getOtherUserHealth(userid));
-    }
-    //test
-    @GetMapping("/user/health/test")
-    public ResponseEntity<ArrayList<UserHealthDto>> test(@PathVariable String userid) {
         return ResponseEntity.ok(userService.getOtherUserHealth(userid));
     }
 }
